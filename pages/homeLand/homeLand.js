@@ -25,7 +25,7 @@ Page({
       },
     ]
   },
-  indexChange:function(e){
+  indexChange:function(e){ 
     this.setData({
       index : e.currentTarget.dataset.index
     })
