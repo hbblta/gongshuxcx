@@ -27,7 +27,7 @@ Page({
   },
   indexChange:function(e){
     this.setData({
-      indexs : e.currentTarget.dataset.index
+      index : e.currentTarget.dataset.index
     })
   },
   /**
