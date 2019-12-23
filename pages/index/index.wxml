@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view>
+	<swiper class="bannerImg" indicator-dots="true" autoplay="true" interval="3000" duration="700">
+		<block wx:for="{{bannerList}}">
+			<swiper-item>
+				<image src="{{item.imageUrl}}" />
+			</swiper-item>
+		</block>
+	</swiper>
+</view>
+<view class="allTitle">
+	<view class="titleList" bindtap="goUrl" data-url='{{item.url}}' wx:for='{{list}}'>
+		<image src="{{item.imgUrl}}"></image>
+		<view>{{item.name}}</view>
+	</view>
+</view>
+<view class="hr"></view>
+<view>
+	<view class="homeland">
+    <text></text>
+    <text>文化家园</text>
+	</view>
+  <view class="homelandImg">
+   <image  src="{{homeland ? homeland : ''}}"></image>
+  </view>
+</view>

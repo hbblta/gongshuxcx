@@ -1,0 +1,4 @@
+<!--pages/homeLand/homeLand.wxml-->
+<view class="title">
+  <text wx:for='{{list}}' :class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
+</view>
