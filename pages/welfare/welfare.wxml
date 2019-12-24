@@ -1,0 +1,12 @@
+<!--pages/welfare/welfare.wxml-->
+<view class="title">
+  <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
+</view>
+<scroll-view>
+ <view class="arthuryList" wx:for='{{list[indexs].articles}}'>
+   <image src="{{item.type == 'text' ? item.photos[0] : item.coverUrl}}"></image>
+   <view class="arthuryTitle">{{item.title}}</view>
+   <view class="arthuryBody">{{item.body}}</view>
+ </view>
+</scroll-view>
+

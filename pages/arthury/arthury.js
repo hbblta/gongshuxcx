@@ -1,41 +1,32 @@
-// pages/homeLand/homeLand.js
+// pages/arthury/arthury.js
+const app = getApp()
+import ajax from '../../utils/ajax'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    indexs:0,
-    list:[
-      {
-        name : '指导思想',
-        id : 1
-      },
-      {
-        name : '基本原则',
-        id : 2
-      },
-      {
-        name : '功能区块',
-        id : 3
-      },
-      {
-        name : '参与方式',
-        id : 4
-      },
-    ]
+     list:[],
+     indexs : 0
   },
-  indexChange:function(e){ 
-    this.setData({
-      index : e.currentTarget.dataset.index
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
+  indexChange:function(e){ 
+    this.setData({
+      indexs : e.currentTarget.dataset.index
+    })
+  },
   onLoad: function (options) {
     wx.setNavigationBarTitle({//更换nav栏字段
-      title: '拱墅网络家园'
+      title: '网络正能量'
+    })
+    ajax.getAjax('categories/6?pattern=full').then(res=>{
+      this.setData({
+        list:res.data.data.children
+      })
     })
   },
 

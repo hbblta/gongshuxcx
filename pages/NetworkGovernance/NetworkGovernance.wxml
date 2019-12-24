@@ -1,0 +1,11 @@
+<!--pages/NetworkGovernance/NetworkGovernance.wxml-->
+<view class="title">
+  <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
+</view>
+<scroll-view>
+ <view class="msgList" wx:for='{{list[indexs].articles}}'>
+  <image src="{{item.photos? item.photos[0] : item.coverUrl}}"></image>
+  <text>{{item.body}}</text>
+  <text>热点追踪 {{ item.createTime}}</text>
+ </view>
+</scroll-view>

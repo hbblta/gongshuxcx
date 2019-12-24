@@ -1,7 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/homeLand/homeLand"
+    "pages/homestea/homestea",
+    "pages/Internet/Internet",
+    "pages/ISOC/ISOC",
+    "pages/AboutUs/AboutUs",
+    "pages/NetworkGovernance/NetworkGovernance",
+    "pages/arthury/arthury",
+    "pages/welfare/welfare",
+    "pages/Cultural/Cultural",
+    "pages/moer/moer"
   ],
   "window": {
     "backgroundTextStyle": "light",

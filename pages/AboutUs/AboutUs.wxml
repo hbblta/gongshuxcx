@@ -1,0 +1,13 @@
+<!--pages/AboutUs/AboutUs.wxml-->
+<view class="title">
+  <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
+</view>
+<scroll-view scroll-y>
+  <view class="listAll">
+    <view class="aboutMsg" wx:for='{{list[indexs].articles}}'>
+   <image src="{{item.type == 'text' ? item.photos[0] : item.coverUrl}}"></image>
+      <view class="titleText">{{item.title}}</view>
+      <view class="bodyText">{{item.body}}</view>
+    </view>
+  </view>
+</scroll-view>

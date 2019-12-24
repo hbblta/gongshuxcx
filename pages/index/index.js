@@ -9,49 +9,49 @@ Page({
       {
         name : '家园介绍',
         imgUrl : '../static/index/index5.png',
-        url : '../homeLand/homeLand'
+        url : '../homestea/homestea'
       },
       {
         name : '互联网党建',
         imgUrl : '../static/index/index8.png',
-        url : '../homeLand/homeLand'
+        url : '../Internet/Internet'
       },
       {
         name : '互联网协会',
         imgUrl : '../static/index/index3.png',
-        url : '../homeLand/homeLand'
+        url : '../ISOC/ISOC'
       },
       {
         name : '企业介绍',
         imgUrl : '../static/index/index4.png',
-        url : '../homeLand/homeLand'
+        url : '../AboutUs/AboutUs'
       },
       {
         name : '网络治理',
         imgUrl : '../static/index/index6.png',
-        url : '../homeLand/homeLand'
+        url : '../NetworkGovernance/NetworkGovernance'
       },
       {
         name : '网络正能量',
         imgUrl : '../static/index/index1.png',
-        url : '../homeLand/homeLand'
+        url : '../arthury/arthury'
       },
       {
         name : '网络公益',
         imgUrl : '../static/index/index2.png',
-        url : '../homeLand/homeLand'
+        url : '../welfare/welfare'
       },
       {
         name : '更多',
         imgUrl : '../static/index/index7.png',
-        url : '../homeLand/homeLand'
+        url : '../moer/moer'
       },
     ],
     homeland :null
   },
   onShow:function(){
     wx.setNavigationBarTitle({//更换nav栏字段
-      title: '拱墅网络家园'
+      title: '墅说运河'
     })
   },
   onLoad: function () {

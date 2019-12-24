@@ -1,0 +1,65 @@
+/* pages/moer/moer.wxss */
+page{
+  background: #F5F5F5;
+}
+.moerTitle image{
+ width: 80rpx;
+ height: 80rpx;
+}
+.moerTitle view{
+  padding-top: 12rpx;
+  width: 80rpx;
+  text-align: center;
+  font-size:26rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(85,85,85,1);
+}
+.moerTitleAll{
+  align-items: center;
+  width:100%;
+  height:208rpx;
+  background:rgba(255,255,255,1);
+  justify-content: space-around;
+  display: flex;
+}
+.moerBody{
+  height: 230rpx;
+  background: white;
+  margin-top: 36rpx;
+  width: 95%;
+  margin-left: 2.5%;
+}
+.moerBodyDate{
+  display: flex;
+  align-items: center;
+  height: 85rpx;
+  border-bottom: 1rpx solid #ddd;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}
+.moerBodyDate image{
+ width: 60rpx;
+ height: 60rpx;
+}
+.moerBodyDate view{
+  font-size:28rpx;
+  font-family:PingFang;
+  font-weight:bold;
+  margin-left: 20rpx;
+  color:rgba(137,137,137,1);
+}
+.moerBodyText{
+  font-size:32rpx;
+  font-family:PingFang;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  padding-top: 34rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}

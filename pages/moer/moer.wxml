@@ -1,0 +1,16 @@
+<!--pages/moer/moer.wxml-->
+<view class="moerTitleAll">
+ <view class="moerTitle" wx:for='list' bindtap="indexCheng" data-index='{{index}}'>
+    <image src='../static/more/more.png'></image>
+    <view>更多</view>
+ </view>
+</view>
+<scroll-view>
+  <view class="moerBody" wx:for='{{list[indexs].articles}}'>
+    <view class="moerBodyDate">
+      <image src="../static/more/tishi.png"></image>
+      <view>{{item.createTime}}</view>
+    </view>
+    <view class="moerBodyText">{{item.body}}</view>
+  </view>
+</scroll-view>

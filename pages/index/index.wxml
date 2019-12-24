@@ -15,7 +15,7 @@
 	</view>
 </view>
 <view class="hr"></view>
-<view>
+<view bindtap="goUrl" data-url='../Cultural/Cultural'>
 	<view class="homeland">
     <text></text>
     <text>文化家园</text>
