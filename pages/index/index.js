@@ -42,7 +42,7 @@ Page({
         url : '../welfare/welfare'
       },
       {
-        name : '更多',
+        name : '通知',
         imgUrl : '../static/index/index7.png',
         url : '../moer/moer'
       },
@@ -55,7 +55,7 @@ Page({
     })
   },
   onLoad: function () {
-    ajax.getAjax('banners?pattern=index').then(res=>{
+    ajax.getAjax('banners?scene=index').then(res=>{
       this.setData({
         bannerList : res.data.data
       })

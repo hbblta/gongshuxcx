@@ -1,0 +1,7 @@
+<!--pages/videosHtml/videosHtml.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="title">{{videoData.title}}</view>
+<video class="videos" poster='{{videoData.coverUrl}}' src="{{videoData.videos[0]}}"></video>
+<view class="wxParse msgData">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>

@@ -1,13 +1,21 @@
 <!--pages/AboutUs/AboutUs.wxml-->
-<view class="title">
+<!-- <view class="title">
   <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
-</view>
+</view> -->
 <scroll-view scroll-y>
   <view class="listAll">
-    <view class="aboutMsg" wx:for='{{list[indexs].articles}}'>
+    <view class="aboutMsg" bindtap="goUrl" data-id='{{item.id}}' data-type='{{item.type}}' wx:for='{{list[indexs].articles}}'>
    <image src="{{item.type == 'text' ? item.photos[0] : item.coverUrl}}"></image>
       <view class="titleText">{{item.title}}</view>
-      <view class="bodyText">{{item.body}}</view>
+      <text decode='true' class="bodyText">{{m1.delHtmlTag(item.body)}}</text>
     </view>
   </view>
 </scroll-view>
+<wxs module="m1">
+var delHtmlTag = function(str) {
+    var reg = getRegExp("<[^>]+>", "g");
+    var result = str.replace(reg, '');
+    return result; 
+  }
+module.exports.delHtmlTag = delHtmlTag;
+</wxs>

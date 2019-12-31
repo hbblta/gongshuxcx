@@ -1,0 +1,9 @@
+<!--pages/textImg/textImg.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<scroll-view>
+<view>{{body}}</view>
+<view class="wxParse msgData">
+    <view class="title">{{title}}</view>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+</scroll-view>

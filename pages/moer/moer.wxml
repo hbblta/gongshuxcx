@@ -1,16 +1,25 @@
 <!--pages/moer/moer.wxml-->
 <view class="moerTitleAll">
- <view class="moerTitle" wx:for='list' bindtap="indexCheng" data-index='{{index}}'>
-    <image src='../static/more/more.png'></image>
-    <view>更多</view>
+ <view class="moerTitle" wx:for='{{list}}' bindtap="indexCheng" data-index='{{index}}'>
+    <image wx:if="{{item.name == '通知'}}" src='../static/more/tishi.jpg'></image>
+    <image wx:if="{{item.name != '通知'}}" src='../static/more/more.jpg'></image>
+    <view>{{item.name}}</view>
  </view>
 </view>
 <scroll-view>
-  <view class="moerBody" wx:for='{{list[indexs].articles}}'>
+  <view class="moerBody"  bindtap="goUrl" data-id='{{item.id}}' data-type='{{item.type}}'  wx:for='{{list[indexs].articles}}'>
     <view class="moerBodyDate">
-      <image src="../static/more/tishi.png"></image>
+      <image src="../static/more/tishi.jpg"></image>
       <view>{{item.createTime}}</view>
     </view>
-    <view class="moerBodyText">{{item.body}}</view>
+    <text decode='true' class="moerBodyText">{{m1.delHtmlTag(item.body)}}</text>
   </view>
 </scroll-view>
+<wxs module="m1">
+var delHtmlTag = function(str) {
+    var reg = getRegExp("<[^>]+>", "g");
+    var result = str.replace(reg, '');
+    return result; 
+  }
+module.exports.delHtmlTag = delHtmlTag;
+</wxs>

@@ -3,9 +3,17 @@
   <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
 </view>
 <scroll-view>
- <view class="msgList" wx:for='{{list[indexs].articles}}'>
+ <view class="msgList" bindtap="goUrl" data-id='{{item.id}}' data-type='{{item.type}}'  wx:for='{{list[indexs].articles}}'>
   <image src="{{item.photos? item.photos[0] : item.coverUrl}}"></image>
-  <text>{{item.body}}</text>
+  <text decode='true'>{{m1.delHtmlTag(item.body)}}</text>
   <text>热点追踪 {{ item.createTime}}</text>
  </view>
 </scroll-view>
+<wxs module="m1">
+var delHtmlTag = function(str) {
+    var reg = getRegExp("<[^>]+>", "g");
+    var result = str.replace(reg, '');
+    return result; 
+  }
+module.exports.delHtmlTag = delHtmlTag;
+</wxs>

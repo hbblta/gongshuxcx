@@ -9,7 +9,9 @@
     "pages/arthury/arthury",
     "pages/welfare/welfare",
     "pages/Cultural/Cultural",
-    "pages/moer/moer"
+    "pages/moer/moer",
+    "pages/textImg/textImg",
+    "pages/videosHtml/videosHtml"
   ],
   "window": {
     "backgroundTextStyle": "light",

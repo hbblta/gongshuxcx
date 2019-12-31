@@ -5,10 +5,11 @@ page{
 .moerTitle image{
  width: 80rpx;
  height: 80rpx;
+ margin-left: 20rpx;
 }
 .moerTitle view{
   padding-top: 12rpx;
-  width: 80rpx;
+  width: 120rpx;
   text-align: center;
   font-size:26rpx;
   font-family:PingFangSC;

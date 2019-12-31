@@ -1,12 +1,20 @@
 <!--pages/welfare/welfare.wxml-->
-<view class="title">
+<!-- <view class="title">
   <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
-</view>
+</view> -->
 <scroll-view>
- <view class="arthuryList" wx:for='{{list[indexs].articles}}'>
+ <view class="arthuryList" bindtap="goUrl" data-id='{{item.id}}' data-type='{{item.type}}' wx:for='{{list[indexs].articles}}'>
    <image src="{{item.type == 'text' ? item.photos[0] : item.coverUrl}}"></image>
    <view class="arthuryTitle">{{item.title}}</view>
-   <view class="arthuryBody">{{item.body}}</view>
+   <text decode='true' class="arthuryBody">{{m1.delHtmlTag(item.body)}}</text>
  </view>
 </scroll-view>
-
+<wxs module="m1">
+var delHtmlTag = function(str) {
+    var reg = getRegExp("<[^>]+>", "g");
+    var twoReg = getRegExp("<[^>]+>", "g");
+    var result = str.replace(reg, '');
+    return result; 
+  }
+module.exports.delHtmlTag = delHtmlTag;
+</wxs>

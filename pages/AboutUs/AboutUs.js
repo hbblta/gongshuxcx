@@ -19,6 +19,17 @@ Page({
       indexs : e.currentTarget.dataset.index
     })
   },
+  goUrl:function(e){
+    if(e.currentTarget.dataset.type == 'text'){
+      wx.navigateTo({
+        url: '../textImg/textImg?id='+e.currentTarget.dataset.id+'&titles=企业介绍',
+      })
+    }else{
+      wx.navigateTo({
+        url: '../videosHtml/videosHtml?id='+e.currentTarget.dataset.id+'&titles=企业介绍',
+      })
+    }
+  },
   onLoad: function (options) {
     wx.setNavigationBarTitle({//更换nav栏字段
       title: '企业介绍'

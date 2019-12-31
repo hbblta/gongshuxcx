@@ -1,11 +1,11 @@
 /**index.wxss**/
 .bannerImg{
   width:750rpx;
-  height:369rpx;
+  height:400rpx;
 }
 .bannerImg image{
   width:100%;
-  height:369rpx;
+  height:400rpx;
 }
 .allTitle{
   width: 100%;
@@ -58,9 +58,9 @@
 }
 .homelandImg{
   width: 100%;
-  height: 350rpx;
+  height: 360rpx;
 }
 .homelandImg image{
   width: 100%;
-  height: 350rpx;
+  height: 360rpx;
 }

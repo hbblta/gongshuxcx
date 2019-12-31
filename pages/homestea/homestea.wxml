@@ -1,11 +1,11 @@
 <!--pages/homeLand/homeLand.wxml-->
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class="title">
-  <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
+  <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.title}}</text>
 </view>
 <view class="hr"></view>
-<view>
 
+<view>
 <scroll-view>
 <view class="wxParse msgData">
     <template is="wxParse" data="{{wxParseData:article.nodes}}"/>

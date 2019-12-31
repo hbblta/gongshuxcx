@@ -8,35 +8,16 @@ Page({
    */
   data: {
     indexs:0,
-    list:[
-      {
-        name : '指导思想',
-        id : 1
-      },
-      {
-        name : '基本原则',
-        id : 2
-      },
-      {
-        name : '功能区块',
-        id : 3
-      },
-      {
-        name : '参与方式',
-        id : 4
-      },
-    ],
+    list:[],
   },
   indexChange:function(e){ 
     this.setData({
       indexs : e.currentTarget.dataset.index
     })
-    var index = e.currentTarget.dataset.index + 1
-    ajax.getAjax('articles/'+index).then(res=>{
-      var that = this;
-      var article = res.data.data.body;
-      WxParse.wxParse('article', 'html', article, that,5);
-    })
+    var that = this
+    console.log(this.data.list)
+    var article = this.data.list[e.currentTarget.dataset.index].body;
+    WxParse.wxParse('article', 'html', article, that,5);
   },
   /**
    * 生命周期函数--监听页面加载
@@ -45,14 +26,19 @@ Page({
     wx.setNavigationBarTitle({//更换nav栏字段
       title: '家园介绍'
     })
-    var loadIndex = {
-      currentTarget : {
-        dataset : {
-          index : 0
+    ajax.getAjax('categories/1?pattern=full').then(res=>{
+      this.setData({
+        list : res.data.data.articles
+      })
+      var loadIndex = {
+        currentTarget : {
+          dataset : {
+            index : 0
+          }
         }
       }
-    }
-    this.indexChange(loadIndex)
+      this.indexChange(loadIndex)
+    })
   },
 
   /**

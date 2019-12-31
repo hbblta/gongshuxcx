@@ -14,6 +14,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  goUrl:function(e){
+    if(e.currentTarget.dataset.type == 'text'){
+      wx.navigateTo({
+        url: '../textImg/textImg?id='+e.currentTarget.dataset.id+'&titles=网络正能量',
+      })
+    }else{
+      wx.navigateTo({
+        url: '../videosHtml/videosHtml?id='+e.currentTarget.dataset.id+'&titles=网络正能量',
+      })
+    }
+  },
   indexChange:function(e){ 
     this.setData({
       indexs : e.currentTarget.dataset.index

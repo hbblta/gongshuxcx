@@ -28,11 +28,20 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  ToText:function(HTML){
+    let input = HTML;
+    return input.replace(/<(style|script|iframe)[^>]*?>[\s\S]+?<\/\1\s*>/gi,'').replace(/<[^>]+?>/g,'').replace(/\s+/g,' ').replace(/ /g,' ').replace(/>/g,' ');
+  },
   onLoad: function (options) {
     wx.setNavigationBarTitle({//更换nav栏字段
       title: '互联网党建'
     })
-    ajax.getAjax('banners?pattern=index&scene=internet').then(res=>{
+    // ajax.getAjax('categories/3?pattern=full').then(res=>{
+    //   this.setData({
+    //     list:res.data.data.children
+    //   })
+    // })
+    ajax.getAjax('banners?scene=internet').then(res=>{
       this.setData({
         bannerList : res.data.data
       })
@@ -46,12 +55,22 @@ Page({
       this.indexChange(loadIndex)
     })
   },
+  goUrl:function(e){
+    if(e.currentTarget.dataset.type == 'text'){
+      wx.navigateTo({
+        url: '../textImg/textImg?id='+e.currentTarget.dataset.id+'&titles=互联网党建',
+      })
+    }else{
+      wx.navigateTo({
+        url: '../videosHtml/videosHtml?id='+e.currentTarget.dataset.id+'&titles=互联网党建',
+      })
+    }
+  },
   indexChange:function(e){ 
     this.setData({
       indexs : e.currentTarget.dataset.index
     })
     ajax.getAjax('articles?categoryId=1'+e.currentTarget.dataset.index+'&from=0&size=100').then(res=>{
-      console.log( res.data.data.items)
       this.setData({
         msgList : res.data.data.items
       })

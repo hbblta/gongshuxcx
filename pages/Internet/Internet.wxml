@@ -3,7 +3,7 @@
 	<swiper class="bannerImg" indicator-dots="true" autoplay="true" interval="3000" duration="700">
 		<block wx:for="{{bannerList}}">
 			<swiper-item>
-				<image src="{{item.imageUrl}}" />
+				<image src="https://img.zjdandaotech.com/{{item.imageUrl}}" />
 			</swiper-item>
 		</block>
 	</swiper>
@@ -12,8 +12,16 @@
   <text wx:for='{{list}}' class="{{index == indexs ?  'titleChange' : ''}}" bindtap="indexChange" data-index='{{index}}'>{{item.name}}</text>
 </view>
 <scroll-view>
- <view class="msgList" wx:for='{{msgList}}'>
+ <view class="msgList" bindtap="goUrl" data-id='{{item.id}}' data-type='{{item.type}}' wx:for='{{msgList}}'>
   <image wx:if='{{item.photos != []}}' src="{{item.photos != [] ? item.photos[0] : ''}}"></image>
-  <text>{{item.body}}</text>
+  <text decode='true'>{{m1.delHtmlTag(item.body)}}</text>
  </view>
 </scroll-view>
+<wxs module="m1">
+var delHtmlTag = function(str) {
+    var reg = getRegExp("<[^>]+>", "g");
+    var result = str.replace(reg, '');
+    return result; 
+  }
+module.exports.delHtmlTag = delHtmlTag;
+</wxs>

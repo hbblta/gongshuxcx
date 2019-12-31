@@ -1,0 +1,13 @@
+/* pages/videosHtml/videosHtml.wxss */
+@import '../../wxParse/wxParse.wxss';
+.title{
+  font-size: 32rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.videos{
+padding: 25rpx;
+ width: 95%;
+ margin: 0;
+}

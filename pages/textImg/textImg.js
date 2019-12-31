@@ -1,45 +1,40 @@
-// pages/NetworkGovernance/NetworkGovernance.js
-const app = getApp()
+// pages/textImg/textImg.js
 import ajax from '../../utils/ajax'
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[],
-    indexs : 0
+    title : '',
+    body: ''
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  goUrl:function(e){
-    if(e.currentTarget.dataset.type == 'text'){
-      wx.navigateTo({
-        url: '../textImg/textImg?id='+e.currentTarget.dataset.id+'&titles=网络治理',
+  onLoad: function (options) {
+    if(/^%/.test(options.titles)){
+      wx.setNavigationBarTitle({//更换nav栏字段
+        title: '详情'
       })
     }else{
-      wx.navigateTo({
-        url: '../videosHtml/videosHtml?id='+e.currentTarget.dataset.id+'&titles=网络治理',
+      wx.setNavigationBarTitle({//更换nav栏字段
+        title: options.titles
       })
     }
-  },
-  onLoad: function (options) {
-    wx.setNavigationBarTitle({//更换nav栏字段
-      title: '网络治理'
-    })
-    ajax.getAjax('categories/5?pattern=full').then(res=>{
+    
+
+    ajax.getAjax('articles/'+options.id).then(res=>{
+      var that = this;
+      var article = res.data.data.body;
       this.setData({
-        list : res.data.data.children
+        title : res.data.data.title
       })
+      WxParse.wxParse('article', 'html', article, that,5);
     })
   },
-  indexChange:function(e){ 
-    this.setData({
-      indexs : e.currentTarget.dataset.index
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
